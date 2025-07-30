@@ -52,18 +52,23 @@ These packages are essential for compiling the Linux kernel with LSM support.
 ## Kernel Integration Steps
 Safex must be integrated into the Linux kernel source tree. Below are the detailed steps:
 1. **Copying Safex**
+
 Clone the Safex repository or copy the safex folder (containing Makefile, Kconfig, safex_lsm.c, README.md, and include/safex.h) into the kernel source tree under `security/safex/`.
+
 2. **Modify `security/Kconfig`**
+
 Add the following line at the bottom:
 ```
 source "security/safex/Kconfig"
 ```
 3. **Modify `security/Makefile`**
+
 Append this line:
 ```
 obj-$(CONFIG_SECURITY_SAFEX) += safex/
 ```
 4. **Enable Safex in Kernel Config**
+
 Run:
 ```
 make menuconfig
@@ -79,13 +84,17 @@ CONFIG_SYSTEM_TRUSTED_KEYS=""
 CONFIG_SYSTEM_REVOCATION_KEYS=""
 ```
 5. **Update `.config` to Register Safex**
+
 Edit the .config file manually and prepend safex to the CONFIG_LSM list.
+
 6. **Fixing Low Disk Space Issues (Optional)**
+
 I ran into low disk space issues during my build. If your build fails due to low space, run:
 ```
 make localmodconfig
 ```
 This will prune unneeded modules.
+
 7. **Compile and Install Kernel**
 ```
 make -j$(nproc)
@@ -93,6 +102,7 @@ make modules_install
 make install
 ```
 8. **Configure GRUB**
+
 We can edit `/etc/default/grub` file to set a timeout and a menu so that we can select our desired linux kernel to boot to. (Linux 6.11.0 in this case).
 ```
 GRUB_TIMEOUT=10
