@@ -1,0 +1,1 @@
+obj-$(CONFIG_SECURITY_SAFEX) += safex_lsm.o

@@ -1,0 +1,9 @@
+config SECURITY_SAFEX
+    bool "Safex LSM: Secure File Read Blocking"
+    depends on SECURITY
+    default n
+    help
+      This is a simple Linux Security Module (LSM) called Safex.
+      It allows you to block read access to files listed in a denylist.
+
+      If unsure, say N.
