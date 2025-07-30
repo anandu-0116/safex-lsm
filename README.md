@@ -30,6 +30,12 @@ safex/
 All other changes were made in the Linux kernel source tree externally.
 
 ## Prerequisites
+1. **Download and extract kernel source:**
+```
+wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.11.tar.xz
+tar -xf linux-6.11.tar.xz
+```
+2. **Install required packages:**
 Install the following packages on your Linux development machine (Ubuntu recommended):
 ```
 sudo apt update
